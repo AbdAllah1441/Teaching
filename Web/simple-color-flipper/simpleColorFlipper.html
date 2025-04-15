@@ -1,130 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Counter App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-
-        .container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 20px;  
-            padding: 20px;
+            margin: 0;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
         }
-
-        h1 {
-            font-size: 24px;
-            color: #333;
-        }
-
-        .counter {
-          width: 80%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .counter button {
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .counter button:hover {
-            background-color: #45a049;
-        }
-
-        #counter-value {
-            font-size: 20px;
-            width: 60px;
-            height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-
-        #reset {
-            padding: 10px 30px;
+        button {
+            font-weight: 600;
+            font-family: monospace;
+            padding: 15px 30px;
             font-size: 16px;
-            background-color: #f44336;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: black;
             color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block;
-            width: 80%; 
-        }
-
-        #reset:hover {
-            background-color: #d32f2f;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Counter App</h1>
-        <div class="counter">
-            <button id="increment-btn">+</button>
-            <div id="counter-value">0</div>
-            <button id="decrement-btn">-</button>
-        </div>
-        <button id="reset">Reset</button>
-    </div>
-
+    <button id="btn" onclick="changeColor()">Flip Color</button>
     <script>
-        let counter = 0;
-
-        const counterValue = document.getElementById('counter-value');
-        const incrementBtn = document.getElementById('increment-btn');
-        const decrementBtn = document.getElementById('decrement-btn');
-        const resetBtn = document.getElementById('reset');
-
-        // Increment counter
-        incrementBtn.addEventListener('click', () => {
-            counter++;
-            counterValue.textContent = counter;
-        });
-
-        // Decrement counter
-        decrementBtn.addEventListener('click', () => {
-            counter--;
-            counterValue.textContent = counter;
-        });
-
-        // Reset counter
-        resetBtn.addEventListener('click', () => {
-            counter = 0;
-            counterValue.textContent = counter;
-        });
+        function changeColor() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            const btn = document.getElementById("btn");
+            document.body.style.backgroundColor = randomColor;
+            btn.style.color = randomColor;
+        }
     </script>
 </body>
 </html>
